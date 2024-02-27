@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+<link rel="stylesheet" href="styles.css">
+{% block content %}
+<div class="container">
+<div class="posts" >
+
+<h2 class="title">{% block name %} {{ post['name'] }} {% endblock %} </h2>
+<div class="info">
+<span class="category">{{ post['category'] }}</span>
+<span class="priority"> {{post['priority']}} </span>
+</div>
+
+<div class="post">
+    <pre>{{ post['texts'] }}</pre>
+</div>
+</div>
+</div>>
+
+<style>
+
+    .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+
+.posts {
+  width: 400px;
+  height: 400px;
+  border: 5px solid black;
+  padding: 10px;
+}
+    .title {
+      text-align: center;
+      font-size: 51px;
+      padding: 20px;
+    }
+
+
+  .category,
+  .priority {
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 10px;
+    background-color: #3498db;
+    color: #fff;
+    margin-right: 10px;
+  }
+
+.post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  border: 2px solid black;
+  padding: 30px;
+  box-sizing: border-box;
+  background-color: #FFF8DC;
+margin-top: 20px;
+  margin-bottom: 0;
+  height: 25vh;}
+
+ .info {
+    text-align: center;
+  }
+
+
+
+ </style>
+
+{% endblock %}
+

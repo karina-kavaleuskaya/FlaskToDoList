@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block name %} Create a New Task {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="category">Category</label>
+        <input type="text" name="category"
+               placeholder="Post ccategory" class="form-control"
+               value="{{ request.form['category'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="name">Task Name</label>
+        <input type="text" name="name"
+               placeholder="Post name" class="form-control"
+               value="{{ request.form['name'] }}"></input>
+    </div>
+
+<div class="form-group">
+    <label for="priority">Priority</label>
+    <select name="priority" class="form-control">
+        <option value="high" {% if request.form['priority'] == 'high' %} selected {% endif %}>High</option>
+        <option value="medium" {% if request.form['priority'] == 'medium' %} selected {% endif %}>Medium</option>
+        <option value="low" {% if request.form['priority'] == 'low' %} selected {% endif %}>Low</option>
+    </select>
+</div>
+
+        <div class="form-group">
+    <label for="texts">Text</label>
+    <textarea
+            name="texts" placeholder="Post content" class="form-control" rows="20">
+        {{ request.form['texts'] }}
+    </textarea>
+</div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+{% endblock %}
